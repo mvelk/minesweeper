@@ -1,19 +1,20 @@
 class Tile
-  attr_reader :bombed
-  attr_accessor :flagged, :revealed
+  attr_reader :bombed, :pos
+  attr_accessor :flagged, :revealed, :value
 
-  def initialize(bombed)
+  def initialize(bombed, pos)
+    @pos = pos
     @bombed = bombed
     @flagged = false
     @revealed = false
-    @value = bombed ? "*" : " "
+    @value = bombed ? "*" : "[ ]"
   end
 
   def render
     if revealed
       return "#{@value}"
     else
-      return "[x]"
+      return "[X]"
     end
   end
 
