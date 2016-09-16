@@ -24,6 +24,14 @@ class Board
     end
   end
 
+  def toggle_flag(move)
+    row, col = move
+    @grid[row][col].flagged = @grid[row][col].flagged ? false : true
+  end
+
+  def reveal_square(move)
+  end
+
   def has_bomb?(move)
     row, col = move
     @grid[row][col].bombed
@@ -40,7 +48,7 @@ class Board
 
   def valid_move_pos?(move)
     row, col = move
-    return false unless row.between?(0..@grid.length-1) && col.between?(0..@grid.length-1)
+    return false unless row.between?(0,@grid.length-1) && col.between?(0,@grid.length-1)
     return false if @grid[row][col].revealed
     true
   end

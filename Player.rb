@@ -10,7 +10,7 @@ class Player
     puts "Where do you want to move?"
     loop do
       move = gets.chomp.split(',').map(&:to_i)
-      break if board.valid_move_pos?(move, board)
+      break if board.valid_move_pos?(move)
     end
   end
 
@@ -18,7 +18,7 @@ class Player
     puts "What do you want to do? Flag(F) or Reveal(R)?"
     loop do
       move = gets.chomp
-      break if board.valid_move_type?(move, board)
+      break if board.valid_move_type?(move)
     end
   end
 
